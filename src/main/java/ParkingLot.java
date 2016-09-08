@@ -2,9 +2,11 @@ import java.util.HashMap;
 import java.util.UUID;
 
 public class ParkingLot {
-    private static final int MAXIMUM_LOTS_NUMBER = 1;
+    private int MAXIMUM_LOTS_NUMBER = 0;
     private HashMap<UUID, Car> car;
-    public ParkingLot() {
+
+    public ParkingLot(int parkingLotNumber) {
+        this.MAXIMUM_LOTS_NUMBER = parkingLotNumber;
         this.car = new HashMap<>();
     }
 
