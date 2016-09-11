@@ -1,0 +1,7 @@
+ParkingLotManagementSystem.iml
+ParkingLotManagementSystem.ipr
+ParkingLotManagementSystem.iws
+out/
+build
+.idea
+.gradle
