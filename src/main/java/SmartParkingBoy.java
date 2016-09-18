@@ -20,4 +20,16 @@ public class SmartParkingBoy {
 
         return parkingLot.dropOff(myCar);
     }
+
+    public Car pickUp(UUID ticket) {
+        Car car = null;
+        for (ParkingLot parkingLot : parkingLots) {
+            car = parkingLot.pickUp(ticket);
+            if (car != null) {
+                break;
+            }
+        }
+        return car;
+
+    }
 }

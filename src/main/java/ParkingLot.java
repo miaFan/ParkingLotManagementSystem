@@ -5,8 +5,6 @@ public class ParkingLot {
     private int MAXIMUM_LOTS_NUMBER = 0;
     private HashMap<UUID, Car> cars;
 
-
-
     public ParkingLot(int parkingLotNumber) {
         this.MAXIMUM_LOTS_NUMBER = parkingLotNumber;
         this.cars = new HashMap<UUID, Car>();
@@ -28,5 +26,10 @@ public class ParkingLot {
 
     public int availableLotsCount() {
         return MAXIMUM_LOTS_NUMBER - cars.size();
+    }
+
+
+    public double getVacancyRate() {
+        return 1.0 * this.availableLotsCount() / MAXIMUM_LOTS_NUMBER;
     }
 }
