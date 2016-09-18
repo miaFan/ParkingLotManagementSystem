@@ -8,12 +8,12 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 
-public class ParkingLotBoyTest {
+public class ParkingBoyTest {
     @Test
     public void should_pick_the_origin_car_when_boy_park_a_car_success_with_one_parking_lot() throws NoAvailableLotException {
         ParkingLot parkingLot = new ParkingLot(1);
         List<ParkingLot> parkingLots = Arrays.asList(parkingLot);
-        ParkingLotBoy boy = new ParkingLotBoy(parkingLots);
+        ParkingBoy boy = new ParkingBoy(parkingLots);
         Car myCar = new Car();
 
         UUID myTicket = boy.dropOff(myCar);
@@ -24,7 +24,7 @@ public class ParkingLotBoyTest {
     @Test(expected = NoAvailableLotException.class)
     public void should_throw_exception_when_boy_park_a_car_failure_with_one_parking_lot() throws NoAvailableLotException {
         List<ParkingLot> parkingLots = Arrays.asList(new ParkingLot(0));
-        ParkingLotBoy boy = new ParkingLotBoy(parkingLots);
+        ParkingBoy boy = new ParkingBoy(parkingLots);
         Car myCar = new Car();
 
         boy.dropOff(myCar);
@@ -34,7 +34,7 @@ public class ParkingLotBoyTest {
     public void should_pick_the_origin_car_when_boy_park_a_car_success_with_two_parking_lots() throws NoAvailableLotException {
         ParkingLot parkingLot = new ParkingLot(1);
         List<ParkingLot> parkingLots = Arrays.asList(new ParkingLot(0), parkingLot);
-        ParkingLotBoy boy = new ParkingLotBoy(parkingLots);
+        ParkingBoy boy = new ParkingBoy(parkingLots);
         Car myCar = new Car();
 
         UUID myTicket = boy.dropOff(myCar);
@@ -45,7 +45,7 @@ public class ParkingLotBoyTest {
     @Test(expected = NoAvailableLotException.class)
     public void should_throw_exception_when_boy_park_a_car_failure_with_two_parking_lots() throws NoAvailableLotException {
         List<ParkingLot> parkingLots = Arrays.asList(new ParkingLot(0), new ParkingLot(0));
-        ParkingLotBoy boy = new ParkingLotBoy(parkingLots);
+        ParkingBoy boy = new ParkingBoy(parkingLots);
         Car myCar = new Car();
 
         boy.dropOff(myCar);
@@ -57,7 +57,7 @@ public class ParkingLotBoyTest {
         Car myCar = new Car();
         UUID myTicket = parkingLot.dropOff(myCar);
         List<ParkingLot> parkingLots = Arrays.asList(new ParkingLot(0), parkingLot);
-        ParkingLotBoy boy = new ParkingLotBoy(parkingLots);
+        ParkingBoy boy = new ParkingBoy(parkingLots);
 
         assertThat(boy.pickUp(myTicket), is(myCar));
     }
@@ -65,7 +65,7 @@ public class ParkingLotBoyTest {
     @Test
     public void should_not_pick_the_car_when_car_not_found_in_parking_lots() {
         List<ParkingLot> parkingLots = Arrays.asList(new ParkingLot(1));
-        ParkingLotBoy boy = new ParkingLotBoy(parkingLots);
+        ParkingBoy boy = new ParkingBoy(parkingLots);
 
         assertNull(boy.pickUp(UUID.randomUUID()));
     }

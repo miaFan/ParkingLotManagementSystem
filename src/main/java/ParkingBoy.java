@@ -1,10 +1,10 @@
 import java.util.List;
 import java.util.UUID;
 
-public class ParkingLotBoy {
+public class ParkingBoy {
     private final List<ParkingLot> parkingLots;
 
-    public ParkingLotBoy(List<ParkingLot> parkingLots) {
+    public ParkingBoy(List<ParkingLot> parkingLots) {
         this.parkingLots = parkingLots;
     }
 
