@@ -1,5 +1,4 @@
 import java.util.List;
-import java.util.UUID;
 
 public class SmartParkingBoy extends ParkingBoy {
 
@@ -7,15 +6,14 @@ public class SmartParkingBoy extends ParkingBoy {
         super(parkingLots);
     }
 
-    public UUID dropOff(Car myCar) throws NoAvailableLotException {
-        ParkingLot parkingLot = getParkingLot(0);
-        for(int i = 1; i< getParkingLotsSize(); i++) {
-            if(i > 0 && getParkingLot(i).availableLotsCount() > getParkingLot(i-1).availableLotsCount()) {
-                parkingLot = getParkingLot(i);
+    public ParkingLot getIdealParkingLot(List<ParkingLot> parkingLots) {
+        ParkingLot parkingLotWithMaxAvailableSpaceCounts = parkingLots.get(0);
+        for(int i = 1; i< parkingLots.size(); i++) {
+            if(parkingLots.get(i).availableLotsCount() > parkingLots.get(i-1).availableLotsCount()) {
+                parkingLotWithMaxAvailableSpaceCounts = parkingLots.get(i);
             }
         }
-
-        return parkingLot.dropOff(myCar);
+        return parkingLotWithMaxAvailableSpaceCounts;
     }
 
 }
