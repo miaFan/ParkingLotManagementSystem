@@ -1,10 +1,7 @@
 import java.util.List;
 import java.util.UUID;
 
-/**
- * Created by twer on 9/18/16.
- */
-public class SuperSmartParkingBoy {
+public class SuperSmartParkingBoy implements DropOffAbility{
     private List<ParkingLot> parkingLots;
 
     public SuperSmartParkingBoy(List<ParkingLot> parkingLots) {

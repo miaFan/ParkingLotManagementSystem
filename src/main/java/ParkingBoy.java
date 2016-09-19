@@ -1,7 +1,7 @@
 import java.util.List;
 import java.util.UUID;
 
-public class ParkingBoy {
+public class ParkingBoy implements DropOffAbility{
     private final List<ParkingLot> parkingLots;
 
     public ParkingBoy(List<ParkingLot> parkingLots) {

@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.UUID;
 
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 
 public class SmartParkingBoyTest {
@@ -13,7 +12,7 @@ public class SmartParkingBoyTest {
     public void should_pick_origin_car_when_smart_parking_boy_park_a_car_into_parking_lot() throws NoAvailableLotException {
         ParkingLot parkingLot = new ParkingLot(1);
         List<ParkingLot> parkingLots = Arrays.asList(parkingLot);
-        SmartParkingBoy boy = new SmartParkingBoy(parkingLots);
+        DropOffAbility boy = new SmartParkingBoy(parkingLots);
         Car myCar = new Car();
 
         UUID myTicket = boy.dropOff(myCar);
@@ -27,7 +26,7 @@ public class SmartParkingBoyTest {
         ParkingLot parkingLot1 = new ParkingLot(2);
         parkingLot1.dropOff(myCar);
         ParkingLot parkingLotWithMoreEmptyLots = new ParkingLot(2);
-        SmartParkingBoy boy = new SmartParkingBoy(Arrays.asList(new ParkingLot[]{parkingLot1, parkingLotWithMoreEmptyLots}));
+        DropOffAbility boy = new SmartParkingBoy(Arrays.asList(new ParkingLot[]{parkingLot1, parkingLotWithMoreEmptyLots}));
 
 
         UUID myTicket = boy.dropOff(myCar);
