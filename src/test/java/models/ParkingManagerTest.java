@@ -1,3 +1,5 @@
+package models;
+
 import org.junit.Ignore;
 
 import java.util.Arrays;

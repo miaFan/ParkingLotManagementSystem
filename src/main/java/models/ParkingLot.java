@@ -1,3 +1,7 @@
+package models;
+
+import exceptions.NoAvailableLotException;
+
 import java.util.HashMap;
 import java.util.UUID;
 

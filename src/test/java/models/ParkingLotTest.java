@@ -1,3 +1,6 @@
+package models;
+
+import exceptions.NoAvailableLotException;
 import org.junit.Assert;
 import org.junit.Test;
 
