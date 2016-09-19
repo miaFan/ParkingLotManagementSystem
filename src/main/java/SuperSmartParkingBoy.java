@@ -1,24 +1,21 @@
 import java.util.List;
 import java.util.UUID;
 
-public class SuperSmartParkingBoy implements DropOffAbility{
-    private List<ParkingLot> parkingLots;
-
+public class SuperSmartParkingBoy extends ParkingBoy {
     public SuperSmartParkingBoy(List<ParkingLot> parkingLots) {
-
-        this.parkingLots = parkingLots;
+        super(parkingLots);
     }
 
     public UUID dropOff(Car myCar) throws NoAvailableLotException {
         int maxIndex = 0;
         double maxRate = 0;
-        for(int i = 0; i<parkingLots.size();i ++) {
-            double vacancyRate = parkingLots.get(i).getVacancyRate();
+        for(int i = 0; i<getParkingLotsSize();i ++) {
+            double vacancyRate = getParkingLot(i).getVacancyRate();
             if(vacancyRate > maxRate){
                 maxRate = vacancyRate;
                 maxIndex = i;
             }
         }
-        return parkingLots.get(maxIndex).dropOff(myCar);
+        return getParkingLot(maxIndex).dropOff(myCar);
     }
 }

@@ -32,4 +32,12 @@ public class ParkingBoy implements DropOffAbility{
         }
         return car;
     }
+
+    protected ParkingLot getParkingLot(int index) {
+        return parkingLots.get(index);
+    }
+
+    protected int getParkingLotsSize() {
+        return parkingLots.size();
+    }
 }

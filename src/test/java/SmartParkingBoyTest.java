@@ -36,9 +36,10 @@ public class SmartParkingBoyTest {
 
     @Test
     public void should_pick_origin_car_by_smart_parking_boy_from_the_most_empty_parkinglot_when_smart_parking_boy_park_a_car() throws NoAvailableLotException {
-        ParkingLot parkingLot1 = new ParkingLot(1);
+        ParkingLot hasMaxAvaliableSpaceParkingLot = new ParkingLot(5);
+        ParkingLot parkingLot1 = new ParkingLot(3);
         ParkingLot parkingLot2 = new ParkingLot(2);
-        SmartParkingBoy boy = new SmartParkingBoy(Arrays.asList(new ParkingLot[]{parkingLot1, parkingLot2}));
+        SmartParkingBoy boy = new SmartParkingBoy(Arrays.asList(new ParkingLot[]{hasMaxAvaliableSpaceParkingLot, parkingLot1, parkingLot2}));
         Car myCar = new Car();
 
         UUID myTicket = boy.dropOff(myCar);
