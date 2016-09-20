@@ -16,7 +16,7 @@ public class SmartParkingBoyTest {
     public void should_pick_origin_car_when_smart_parking_boy_park_a_car_into_parking_lot() throws NoAvailableLotException {
         ParkingLot parkingLot = new ParkingLot(1);
         List<ParkingLot> parkingLots = Arrays.asList(parkingLot);
-        SmartParkingBoy boy = new SmartParkingBoy(parkingLots, new MaxAvailableSpaceCountStrategy());
+        ParkingBoy boy = new ParkingBoy(parkingLots, new MaxAvailableSpaceCountStrategy());
         Car myCar = new Car();
 
         UUID myTicket = boy.dropOff(myCar);
@@ -30,7 +30,7 @@ public class SmartParkingBoyTest {
         ParkingLot parkingLot1 = new ParkingLot(2);
         parkingLot1.dropOff(myCar);
         ParkingLot parkingLotWithMoreEmptyLots = new ParkingLot(2);
-        SmartParkingBoy boy = new SmartParkingBoy(Arrays.asList(new ParkingLot[]{parkingLot1, parkingLotWithMoreEmptyLots}), new MaxAvailableSpaceCountStrategy());
+        ParkingBoy boy = new ParkingBoy(Arrays.asList(new ParkingLot[]{parkingLot1, parkingLotWithMoreEmptyLots}), new MaxAvailableSpaceCountStrategy());
 
 
         UUID myTicket = boy.dropOff(myCar);
@@ -43,7 +43,7 @@ public class SmartParkingBoyTest {
         ParkingLot hasMaxAvaliableSpaceParkingLot = new ParkingLot(5);
         ParkingLot parkingLot1 = new ParkingLot(3);
         ParkingLot parkingLot2 = new ParkingLot(2);
-        SmartParkingBoy boy = new SmartParkingBoy(Arrays.asList(new ParkingLot[]{hasMaxAvaliableSpaceParkingLot, parkingLot1, parkingLot2}), new MaxAvailableSpaceCountStrategy());
+        ParkingBoy boy = new ParkingBoy(Arrays.asList(new ParkingLot[]{hasMaxAvaliableSpaceParkingLot, parkingLot1, parkingLot2}), new MaxAvailableSpaceCountStrategy());
         Car myCar = new Car();
 
         UUID myTicket = boy.dropOff(myCar);

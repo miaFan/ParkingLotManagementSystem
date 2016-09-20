@@ -16,7 +16,7 @@ public class SuperSmartParkingBoyTest {
     public void should_pick_origin_car_when_super_smart_parking_boy_park_a_car_into_parking_lot() throws NoAvailableLotException {
         ParkingLot parkingLot = new ParkingLot(1);
         List<ParkingLot> parkingLots = Arrays.asList(parkingLot);
-        SuperSmartParkingBoy boy = new SuperSmartParkingBoy(parkingLots, new MaxVacancyRateStrategy());
+        ParkingBoy boy = new ParkingBoy(parkingLots, new MaxVacancyRateStrategy());
         Car myCar = new Car();
 
         UUID myTicket = boy.dropOff(myCar);
@@ -35,7 +35,7 @@ public class SuperSmartParkingBoyTest {
         parkingLotWithhigherVacancyRate.dropOff(myCar);
         ParkingLot parkingLot2 = new ParkingLot(2);
         parkingLot2.dropOff(car2);
-        SuperSmartParkingBoy boy = new SuperSmartParkingBoy(Arrays.asList(new ParkingLot[]{parkingLot1, parkingLotWithhigherVacancyRate, parkingLot2}), new MaxVacancyRateStrategy());
+        ParkingBoy boy = new ParkingBoy(Arrays.asList(new ParkingLot[]{parkingLot1, parkingLotWithhigherVacancyRate, parkingLot2}), new MaxVacancyRateStrategy());
 
 
         UUID myTicket = boy.dropOff(myCar);
@@ -47,7 +47,7 @@ public class SuperSmartParkingBoyTest {
     public void should_pick_origin_car_by_smart_parking_boy_from_the_most_empty_parkinglot_when_smart_parking_boy_park_a_car() throws NoAvailableLotException {
         ParkingLot parkingLot1 = new ParkingLot(1);
         ParkingLot parkingLot2 = new ParkingLot(2);
-        SuperSmartParkingBoy boy = new SuperSmartParkingBoy(Arrays.asList(new ParkingLot[]{parkingLot1, parkingLot2}), new MaxVacancyRateStrategy());
+        ParkingBoy boy = new ParkingBoy(Arrays.asList(new ParkingLot[]{parkingLot1, parkingLot2}), new MaxVacancyRateStrategy());
         Car myCar = new Car();
 
         UUID myTicket = boy.dropOff(myCar);
